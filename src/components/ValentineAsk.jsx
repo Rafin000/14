@@ -13,16 +13,34 @@ export default function ValentineAsk({ onYes }) {
   const [noSize, setNoSize] = useState(22);
   const [yesSize, setYesSize] = useState(22);
   const btnRef = useRef(null);
+  const yesBtnRef = useRef(null);
 
   const runAway = () => {
     const btn = btnRef.current;
+    const yesBtn = yesBtnRef.current;
     if (!btn) return;
 
     const padding = 20;
     const maxX = window.innerWidth - btn.offsetWidth - padding;
     const maxY = window.innerHeight - btn.offsetHeight - padding;
-    const newX = Math.max(padding, Math.random() * maxX);
-    const newY = Math.max(padding, Math.random() * maxY);
+
+    // Get Yes button bounds to avoid overlapping it
+    const yesRect = yesBtn ? yesBtn.getBoundingClientRect() : null;
+    const margin = 60;
+
+    let newX, newY, attempts = 0;
+    do {
+      newX = Math.max(padding, Math.random() * maxX);
+      newY = Math.max(padding, Math.random() * maxY);
+      attempts++;
+    } while (
+      attempts < 30 &&
+      yesRect &&
+      newX < yesRect.right + margin &&
+      newX + btn.offsetWidth > yesRect.left - margin &&
+      newY < yesRect.bottom + margin &&
+      newY + btn.offsetHeight > yesRect.top - margin
+    );
 
     btn.style.position = 'fixed';
     btn.style.left = newX + 'px';
@@ -43,6 +61,7 @@ export default function ValentineAsk({ onYes }) {
         <div className="valentine-names">Rafin & Orpita</div>
         <div className="valentine-btns">
           <button
+            ref={yesBtnRef}
             className="valentine-yes"
             onClick={onYes}
             style={{ fontSize: yesSize + 'px', padding: `${14 + (yesSize - 22) * 0.5}px ${50 + (yesSize - 22) * 2}px` }}
