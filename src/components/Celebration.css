@@ -160,6 +160,12 @@
 }
 
 @media (max-width: 600px) {
-  .celebration-title { font-size: 46px; }
-  .celebration-love { font-size: 28px; }
+  .celebration-emoji { font-size: 60px; }
+  .celebration-title { font-size: 40px; }
+  .celebration-text { font-size: 16px; }
+  .celebration-love { font-size: 24px; }
+  .celebration-names { font-size: 26px; gap: 10px; }
+  .celebration-heart-row { font-size: 22px; letter-spacing: 5px; }
+  .celebration-footer { font-size: 15px; }
+  .celebration-btn { padding: 12px 35px; font-size: 14px; }
 }

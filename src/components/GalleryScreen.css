@@ -126,7 +126,10 @@
 }
 
 @media (max-width: 600px) {
-  .gallery-title { font-size: 34px; }
-  .gallery-coverflow { height: 360px; }
-  .gallery-card { width: 220px; height: 310px; }
+  .gallery-title { font-size: 32px; }
+  .gallery-sub { margin-bottom: 20px; }
+  .gallery-coverflow { height: 320px; }
+  .gallery-card { width: 200px; height: 280px; }
+  .gallery-caption { font-size: 18px; }
+  .gallery-btn { padding: 12px 35px; font-size: 14px; }
 }

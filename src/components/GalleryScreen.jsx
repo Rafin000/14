@@ -46,7 +46,9 @@ export default function GalleryScreen({ onNext }) {
     }
 
     const direction = diff > 0 ? 1 : -1;
-    const offset = direction * Math.min(absDiff, 3) * 120;
+    const isMobile = window.innerWidth <= 600;
+    const gap = isMobile ? 80 : 120;
+    const offset = direction * Math.min(absDiff, 3) * gap;
     const scale = Math.max(0.6, 1 - absDiff * 0.15);
     const rotateY = -direction * 35;
     const opacity = Math.max(0, 1 - absDiff * 0.3);

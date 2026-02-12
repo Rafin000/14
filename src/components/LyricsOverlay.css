@@ -120,3 +120,10 @@
   background: rgba(255, 107, 157, 0.2);
   border-radius: 2px;
 }
+
+@media (max-width: 600px) {
+  .lyrics-toggle { bottom: 16px; right: 16px; width: 42px; height: 42px; font-size: 18px; }
+  .lyrics-modal { padding: 25px 20px; border-radius: 20px; }
+  .lyrics-title { font-size: 26px; }
+  .lyrics-line { font-size: 13px; }
+}

@@ -89,11 +89,9 @@
 }
 
 @media (max-width: 600px) {
-  .valentine-question {
-    font-size: 38px;
-  }
-  .valentine-btns {
-    flex-direction: column;
-    gap: 15px;
-  }
+  .valentine-big-heart { font-size: 65px; }
+  .valentine-question { font-size: 34px; }
+  .valentine-btns { flex-direction: column; gap: 15px; }
+  .valentine-yes { padding: 14px 40px; }
+  .valentine-no { padding: 14px 40px; }
 }
