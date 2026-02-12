@@ -1,0 +1,122 @@
+.lyrics-toggle {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  background: rgba(255, 107, 157, 0.15);
+  border: 1px solid rgba(255, 107, 157, 0.3);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.lyrics-toggle:hover {
+  background: rgba(255, 107, 157, 0.35);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+}
+
+.lyrics-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: backdropIn 0.3s ease;
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lyrics-modal {
+  background: linear-gradient(145deg, #1e0f24, #2a1535);
+  border: 1px solid rgba(255, 107, 157, 0.2);
+  border-radius: 24px;
+  padding: 35px 30px;
+  max-width: 480px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.8) translateY(30px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.lyrics-close {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.lyrics-close:hover {
+  color: #ff6b9d;
+}
+
+.lyrics-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 32px;
+  color: #ff6b9d;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.lyrics-subtitle {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+}
+
+.lyrics-body {
+  text-align: center;
+}
+
+.lyrics-line {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.9;
+  margin: 0;
+}
+
+.lyrics-gap {
+  height: 12px;
+  margin: 0;
+}
+
+.lyrics-name {
+  color: #ff6b9d;
+  font-weight: 600;
+}
+
+.lyrics-modal::-webkit-scrollbar {
+  width: 4px;
+}
+
+.lyrics-modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 157, 0.2);
+  border-radius: 2px;
+}

@@ -1,0 +1,165 @@
+.message-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  animation: screenFadeIn 0.8s ease;
+}
+
+.message-box {
+  text-align: center;
+  max-width: 550px;
+}
+
+.message-typed {
+  font-family: 'Dancing Script', cursive;
+  font-size: 44px;
+  color: #ff6b9d;
+  margin-bottom: 35px;
+  text-shadow: 0 0 30px rgba(255, 107, 157, 0.3);
+  min-height: 55px;
+}
+
+.message-cursor {
+  animation: cursorBlink 0.7s step-end infinite;
+  color: #ff6b9d;
+  font-weight: 100;
+}
+
+@keyframes cursorBlink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ---- Poem lines ---- */
+.message-poem {
+  margin-bottom: 35px;
+}
+
+.poem-spacer {
+  height: 0;
+  transition: height 0.5s ease;
+}
+
+.poem-spacer.visible {
+  height: 18px;
+}
+
+.poem-line {
+  font-size: 17px;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  opacity: 0;
+  will-change: transform, opacity, filter;
+}
+
+/* --- Drift in from right --- */
+.poem-line.line-drift-right {
+  transform: translateX(60px);
+  filter: blur(6px);
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.poem-line.line-drift-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+/* --- Drift in from left --- */
+.poem-line.line-drift-left {
+  transform: translateX(-60px);
+  filter: blur(6px);
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.poem-line.line-drift-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+/* --- Blur in (from blurry to sharp, no movement) --- */
+.poem-line.line-blur-in {
+  filter: blur(12px);
+  transform: scale(1.08);
+  transition: all 1s ease;
+}
+
+.poem-line.line-blur-in.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* --- Scale in (small to normal with slight bounce) --- */
+.poem-line.line-scale-in {
+  transform: scale(0.3);
+  filter: blur(4px);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.poem-line.line-scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* --- Glow in (signature) --- */
+.poem-line.line-glow-in {
+  transform: translateY(15px);
+  text-shadow: none;
+  transition: all 1.2s ease;
+}
+
+.poem-line.line-glow-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  text-shadow: 0 0 20px rgba(255, 107, 157, 0.5), 0 0 40px rgba(255, 107, 157, 0.2);
+}
+
+/* Signature styling */
+.message-signature {
+  color: #ff6b9d;
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  margin-top: 8px;
+}
+
+/* ---- Button ---- */
+.message-btn {
+  background: transparent;
+  border: 2px solid #ff6b9d;
+  color: #ff6b9d;
+  padding: 14px 40px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.message-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.message-btn:hover {
+  background: #ff6b9d;
+  color: #fff;
+  box-shadow: 0 5px 25px rgba(255, 107, 157, 0.4);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .message-typed {
+    font-size: 32px;
+  }
+}
