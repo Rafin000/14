@@ -18,7 +18,7 @@ const transitions = [
   'reveal-zoom', 'reveal-slide-up', 'reveal-flip', 'reveal-rotate', 'reveal-final',
 ];
 
-export default function PromiseWall() {
+export default function PromiseWall({ onNext }) {
   const [current, setCurrent] = useState(0);
   const [phase, setPhase] = useState('show');
   const [direction, setDirection] = useState('next');
@@ -88,6 +88,12 @@ export default function PromiseWall() {
       </div>
 
       <p className="pw-tap">tap left to go back · tap right for next</p>
+
+      {current === promises.length - 1 && onNext && (
+        <button className="pw-continue-btn" onClick={(e) => { e.stopPropagation(); onNext(); }}>
+          Continue 💕
+        </button>
+      )}
     </div>
   );
 }

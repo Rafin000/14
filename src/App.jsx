@@ -7,6 +7,7 @@ import GalleryScreen from './components/GalleryScreen';
 import ValentineAsk from './components/ValentineAsk';
 import Celebration from './components/Celebration';
 import PromiseWall from './components/PromiseWall';
+import ThankYou from './components/ThankYou';
 import LyricsOverlay from './components/LyricsOverlay';
 import { startMusic } from './utils/musicGenerator';
 import './App.css';
@@ -42,7 +43,9 @@ export default function App() {
       case 'gallery':
         return <GalleryScreen onNext={() => goTo('promises')} />;
       case 'promises':
-        return <PromiseWall />;
+        return <PromiseWall onNext={() => goTo('thankyou')} />;
+      case 'thankyou':
+        return <ThankYou />;
       default:
         return null;
     }

@@ -12,6 +12,7 @@ export default function ValentineAsk({ onYes }) {
   const [noText, setNoText] = useState("No");
   const [noSize, setNoSize] = useState(22);
   const [yesSize, setYesSize] = useState(22);
+  const [yesGuard, setYesGuard] = useState(false);
   const btnRef = useRef(null);
   const yesBtnRef = useRef(null);
 
@@ -49,6 +50,10 @@ export default function ValentineAsk({ onYes }) {
     setNoText(noTexts[Math.floor(Math.random() * noTexts.length)]);
     setNoSize(prev => Math.max(12, prev - 2));
     setYesSize(prev => Math.min(40, prev + 3));
+
+    // Briefly guard the Yes button so the size change doesn't cause an accidental tap
+    setYesGuard(true);
+    setTimeout(() => setYesGuard(false), 400);
   };
 
   return (
@@ -63,7 +68,7 @@ export default function ValentineAsk({ onYes }) {
           <button
             ref={yesBtnRef}
             className="valentine-yes"
-            onClick={onYes}
+            onClick={() => { if (!yesGuard) onYes(); }}
             style={{ fontSize: yesSize + 'px', padding: `${14 + (yesSize - 22) * 0.5}px ${50 + (yesSize - 22) * 2}px` }}
           >
             Yes! 💕

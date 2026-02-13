@@ -241,6 +241,29 @@
 .pw-arrow-left { left: 20px; }
 .pw-arrow-right { right: 20px; }
 
+/* ─── Continue button on last promise ─── */
+.pw-continue-btn {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #ff6b9d, #ee5a6f);
+  border: none;
+  color: #fff;
+  padding: 14px 45px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 25px rgba(255, 107, 157, 0.4);
+  animation: fadeInUp 0.8s ease both;
+}
+
+.pw-continue-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 35px rgba(255, 107, 157, 0.6);
+}
+
 @media (max-width: 600px) {
   .pw-card { padding: 40px 25px 30px; border-radius: 24px; }
   .pw-emoji { font-size: 60px; }
